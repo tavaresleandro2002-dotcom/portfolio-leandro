@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Leandro Tavares | Portfólio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .container {
+      text-align: center;
+      max-width: 600px;
+      padding: 40px;
+      background: rgba(0, 0, 0, 0.4);
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+    h1 { font-size: 2.5rem; margin-bottom: 10px; }
+    h2 { font-weight: normal; font-size: 1.2rem; color: #cfd8dc; margin-bottom: 30px; }
+    p { line-height: 1.6; margin-bottom: 30px; }
+    a.button {
+      display: inline-block;
+      padding: 15px 30px;
+      background: #00c6ff;
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 30px;
+      transition: 0.3s ease;
+    }
+    a.button:hover { background: #fff; color: #000; transform: scale(1.05); }
+    .links { margin-top: 30px; }
+    .links a { color: #90caf9; text-decoration: none; margin: 0 10px; font-size: 0.95rem; }
+    .links a:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Leandro Tavares</h1>
+    <h2>Analista de TI | Dados | Cibersegurança</h2>
+    <p>
+      Sou profissional de TI com foco em análise de dados, suporte e segurança da informação.
+      Aqui você encontra meus projetos e formas de contato.
+    </p>
+    <a href="#projetos" class="button">Entrar no Portfólio</a>
+    <div class="links">
+      <a href="https://github.com/" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/" target="_blank">LinkedIn</a>
+      <a href="mailto:seuemail@email.com">Email</a>
+    </div>
+  </div>
+</body>
+</html>
