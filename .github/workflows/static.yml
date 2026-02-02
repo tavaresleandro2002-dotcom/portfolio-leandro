@@ -18,7 +18,15 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: ./   # raiz do repositório
+          path: ./index.html   # apenas o HTML principal
+          # se quiser publicar imagens e PDFs, coloque assim:
+          # path: |
+          #   index.html
+          #   monitoramento.png
+          #   planilha_1.png
+          #   planilha_2.png
+          #   AD_PORT.png
+          #   Leandro_Tavares_CV_2.pdf
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v1
