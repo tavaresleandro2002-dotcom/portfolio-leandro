@@ -46,48 +46,24 @@
     }
 
     /* Botões específicos */
-    .btn-cv {
-      background: #1abc9c; /* verde-azulado */
-    }
-    .btn-cv:hover {
-      background: #16a085;
-      transform: scale(1.05);
-    }
+    .btn-cv { background: #1abc9c; } 
+    .btn-cv:hover { background: #16a085; transform: scale(1.05); }
 
-    .btn-wpp {
-      background: #25D366; /* verde WhatsApp */
-    }
-    .btn-wpp:hover {
-      background: #1ebe5d;
-      transform: scale(1.05);
-    }
+    .btn-wpp { background: #25D366; }
+    .btn-wpp:hover { background: #1ebe5d; transform: scale(1.05); }
 
-    .btn-portfolio {
-      background: #00c6ff;
-      color: #000;
-    }
-    .btn-portfolio:hover {
-      background: #fff;
-      transform: scale(1.05);
-    }
+    .btn-portfolio { background: #00c6ff; color: #000; }
+    .btn-portfolio:hover { background: #fff; transform: scale(1.05); }
 
-    .links {
-      margin-top: 30px;
-    }
+    .links { margin-top: 30px; }
+    .links a { color: #90caf9; text-decoration: none; margin: 0 10px; }
+    .links a:hover { text-decoration: underline; }
 
-    .links a {
-      color: #90caf9;
-      text-decoration: none;
-      margin: 0 10px;
-    }
+    html { scroll-behavior: smooth; }
 
-    .links a:hover {
-      text-decoration: underline;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    .project { text-align: left; margin-bottom: 40px; }
+    .project h2 { color: #00c6ff; margin-bottom: 10px; }
+    .project p { color: #cfd8dc; }
   </style>
 </head>
 
@@ -99,10 +75,7 @@
       <h1>Leandro Tavares</h1>
       <h2>Analista de TI | Dados | Cibersegurança</h2>
 
-      <p>
-        Profissional de TI com experiência em suporte, análise de dados
-        e segurança da informação.
-      </p>
+      <p>Profissional de TI com experiência em suporte, análise de dados e segurança da informação.</p>
 
       <a href="#projetos" class="button btn-portfolio">Entrar no Portfólio</a>
 
@@ -110,7 +83,6 @@
         <a href="https://github.com/tavaresleandro2002-dotcom" target="_blank">GitHub</a>
         <a href="https://www.linkedin.com/in/leandro-tavaressz1620" target="_blank">LinkedIn</a>
         <a href="https://mail.google.com/mail/?view=cm&fs=1&to=tavaresleandro2002@gmail.com" target="_blank">Email</a>
-        <!-- Botão CV atualizado -->
         <a href="Leandro_Tavares_CV (2).pdf" class="button btn-cv" target="_blank">Abrir CV</a>
         <a href="https://wa.me/5511976477770" class="button btn-wpp" target="_blank">WhatsApp</a>
       </div>
@@ -121,12 +93,20 @@
   <section id="projetos">
     <div class="container">
       <h1>Projetos</h1>
-      <p>
-        Aqui vou adicionar meus projetos de TI, dados e cibersegurança.
-      </p>
+
+      <!-- Projeto 1 -->
+      <div class="project">
+        <h2>Monitoramento de Rede</h2>
+        <p>Configurei monitoramento de servidores e dispositivos usando <strong>Zabbix</strong>, criando dashboards em <strong>Grafana</strong> e alertas automáticos para prevenir downtime.</p>
+        <p><strong>Ferramentas:</strong> Zabbix, Grafana, Linux</p>
+        <p><a href="https://github.com/tavaresleandro2002-dotcom/monitoramento-rede" target="_blank">Ver no GitHub</a></p>
+      </div>
+
+      <!-- Aqui você poderá adicionar Projeto 2 e 3 -->
     </div>
   </section>
 
 </body>
 </html>
+
 
