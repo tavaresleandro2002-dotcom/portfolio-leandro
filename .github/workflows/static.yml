@@ -18,9 +18,8 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: .  # usa todo o conteúdo do root (HTML, PNGs e PDF)
+          path: .  # publica todo o conteúdo do root (index.html, imagens, PDF)
 
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v1
 
-        uses: actions/deploy-pages@v1 
