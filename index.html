@@ -30,25 +30,10 @@
       box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     }
 
-    h1 {
-      text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-    }
+    h1 { text-align: center; font-size: 2.5rem; margin-bottom: 10px; }
+    h2 { text-align: center; font-weight: normal; font-size: 1.2rem; color: #cfd8dc; margin-bottom: 30px; }
+    p { line-height: 1.6; }
 
-    h2 {
-      text-align: center;
-      font-weight: normal;
-      font-size: 1.2rem;
-      color: #cfd8dc;
-      margin-bottom: 30px;
-    }
-
-    p {
-      line-height: 1.6;
-    }
-
-    /* BOTÕES */
     a.button {
       display: inline-block;
       padding: 14px 28px;
@@ -66,162 +51,114 @@
     .btn-github { background: #000; }
     .btn-portfolio { background: #00c6ff; color: #000; }
 
-    a.button:hover {
-      transform: scale(1.05);
-      opacity: 0.9;
-    }
+    a.button:hover { transform: scale(1.05); opacity: 0.9; }
 
-    .links {
-      text-align: center;
-      margin-top: 25px;
-    }
+   .links {
+  text-align: center;
+  margin-top: 25px;
+}
 
-    /* PROJETOS */
-    .project {
-      margin-top: 60px;
-    }
+.project {
+  margin-top: 60px;
+}
 
-    .project h2 {
-      color: #00c6ff;
-      margin-bottom: 15px;
-      text-align: left;
-    }
+.project h2 {
+  color: #00c6ff;
+  margin-bottom: 15px;
+  text-align: left;
+}
 
-    /* GRID DE IMAGENS */
-    .images-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      margin: 20px 0;
-    }
+/* GRID CENTRALIZADA */
+.images-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-items: center;
+  gap: 30px;
+  margin: 30px 0;
+}
 
-    .image-box {
-      text-align: center;
-    }
+.image-box {
+  text-align: center;
+}
 
-    .image-box p {
-      font-weight: bold;
-      margin-bottom: 8px;
-    }
+.image-box img {
+  width: 140px;
+  height: 90px;
+  object-fit: contain;
+  background: #fff;
+  padding: 8px;
+  border-radius: 12px;
+  display: block;
+  margin: 0 auto;
+}
 
-    .image-box img {
-      width: 100%;
-      height: 180px;
-      object-fit: contain;
-      background: #fff;
-      padding: 10px;
-      border-radius: 10px;
-    }
 
-    .btn-project {
-      margin-top: 15px;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
   </style>
 </head>
 
 <body>
 
-<!-- HOME -->
 <section>
   <div class="container">
     <h1>Leandro Tavares</h1>
     <h2>Analista de Suporte Jr | Suporte Técnico • Redes • Automação</h2>
 
     <p style="text-align:center;">
-      Profissional de TI com experiência em suporte técnico, atendimento a usuários,
-      redes, monitoramento e automação de processos corporativos.
+      Profissional de TI com experiência em suporte técnico, redes, monitoramento e automação.
     </p>
 
     <div class="links">
       <a href="#projetos" class="button btn-portfolio">Ver Projetos</a>
-      <a href="Leandro_Tavares_CV_2.pdf" class="button btn-cv" target="_blank">Abrir CV</a>
-      <a href="mailto:tavaresleandro2002@gmail.com" class="button btn-email">Email</a>
+     <a href="https://mail.google.com/mail/?view=cm&fs=1&to=tavaresleandro2002@gmail.com&su=Contato%20via%20Portfólio"
+   class="button btn-email" target="_blank">
+   Email
+</a>
       <a href="https://wa.me/5511976477770" class="button btn-wpp" target="_blank">WhatsApp</a>
       <a href="https://github.com/tavaresleandro2002-dotcom" class="button btn-github" target="_blank">GitHub</a>
     </div>
   </div>
 </section>
 
-<!-- PROJETOS -->
 <section id="projetos">
   <div class="container">
 
-    <!-- PROJETO 1 -->
     <div class="project">
       <h2>Monitoramento de Rede</h2>
-
-      <div class="images-grid">
-        <div class="image-box">
-          <p>Print 1</p>
-          <img src="monitoramento.png" alt="Dashboard de monitoramento">
-        </div>
-      </div>
-
-      <p><strong>Descrição:</strong> Monitoramento de servidores e dispositivos com alertas e dashboards.</p>
-      <p><strong>Ferramentas:</strong> Zabbix, Grafana, Linux</p>
-      <p><strong>Objetivo:</strong> Redução do tempo de resposta a incidentes.</p>
-
-      <a href="https://github.com/tavaresleandro2002-dotcom/monitoramento-rede"
-         class="button btn-github btn-project"
-         target="_blank">
-        Ver no GitHub
-      </a>
+      <img src="monitoramento.png">
+      <p>Monitoramento com Zabbix e Grafana.</p>
     </div>
 
-    <!-- PROJETO 2 -->
     <div class="project">
-      <h2>Gestão e Automação de Usuários</h2>
-
-      <div class="images-grid">
-        <div class="image-box">
-          <p>Print 1</p>
-          <img src="AD_PORT.png" alt="Active Directory">
-        </div>
-
-        <div class="image-box">
-          <p>Print 2</p>
-          <img src="planilha_2.png" alt="Controle de usuários">
-        </div>
-
-        <div class="image-box">
-          <p>Print 3</p>
-          <img src="planilha_1.png" alt="Inventário de máquinas">
-        </div>
-      </div>
-
-      <p><strong>Descrição:</strong> Automação e controle de usuários no Active Directory.</p>
-      <p><strong>Ferramentas:</strong> Active Directory, Excel, TOTVS RM</p>
-
-      <a href="https://github.com/tavaresleandro2002-dotcom/gestao-usuarios"
-         class="button btn-github btn-project"
-         target="_blank">
-        Ver no GitHub
-      </a>
+      <h2>Gestão de Usuários AD</h2>
+      <img src="AD_PORT.png">
+      <p>Automação e controle de usuários no Active Directory.</p>
     </div>
 
-    <!-- PROJETO 3: TOTVS -->
     <div class="project">
-      <h2>Experiência com TOTVS RM e Fluig</h2>
+      <h2>TOTVS RM e Fluig</h2>
+      <img src="totvs_rm.png">
+      <p>Inventário e automação de processos corporativos.</p>
+    </div>
 
-      <div class="images-grid">
-        <div class="image-box">
-          <p>TOTVS RM – Gestão de Equipamentos</p>
-          <img src="totvs_rm.png" alt="TOTVS RM - Inventário de equipamentos">
-        </div>
+    <!-- NOVO PROJETO -->
+    <div class="project">
+      <h2>Sistema de Chamados de TI (NoCode)</h2>
+      <img src="imagem_leandro.png">
 
-        <div class="image-box">
-          <p>TOTVS Fluig – Automação de Processos</p>
-          <img src="totvs_fluig.png" alt="TOTVS Fluig - Dashboard de processos">
-        </div>
-      </div>
+      <p><strong>Descrição:</strong> Sistema de Service Desk criado com Microsoft Power Platform.</p>
 
-      <p><strong>Descrição:</strong> Controle de inventário de equipamentos e automação de processos corporativos.</p>
-      <p><strong>Ferramentas:</strong> TOTVS RM, TOTVS Fluig</p>
+      <p>
+      • Abertura de chamados<br>
+      • Prioridade automática<br>
+      • Notificações por email<br>
+      • Dashboard de acompanhamento
+      </p>
 
+      <a href="https://github.com/tavaresleandro2002-dotcom/nocode-it-ticketing-power-platform"
+         class="button btn-github" target="_blank">
+        Ver projeto no GitHub
+      </a>
     </div>
 
   </div>
@@ -229,6 +166,7 @@
 
 </body>
 </html>
+
 
 
 
