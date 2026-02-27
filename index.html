@@ -736,7 +736,17 @@ html { scroll-behavior: smooth; }
 
 <!-- APRESENTAÇÃO - IMAGEM + TEXTO (LADO A LADO) -->
 <div class="container apresentacao">
-  <img src="foto-perfil.jpeg" alt="Leandro Tavares" onclick="abrirImagem(this.src, 'Leandro Tavares - Foto de Perfil')">
+  <div style="display: flex; flex-direction: column; align-items: center;">
+    <img src="foto-perfil.jpeg" alt="Leandro Tavares" onclick="abrirImagem(this.src, 'Leandro Tavares - Foto de Perfil')">
+    
+    <!-- REDES SOCIAIS - AGORA EMBAIXO DA FOTO -->
+    <div class="social-links" style="margin-top: 15px;">
+      <a href="https://www.instagram.com/leandro_tavaresz?igsh=MWtpeDY1ZjhhZjVobg==" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.linkedin.com/in/leandro-tavaressz1620" target="_blank" class="linkedin"><i class="fab fa-linkedin"></i></a>
+      <a href="https://wa.me/5511976477770?text=Olá!%20Vi%20seu%20portfólio" target="_blank" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
+    </div>
+  </div>
+  
   <div class="apresentacao-texto">
     <p>👋 Olá! Sou <strong>Leandro Tavares</strong>, profissional de TI com <strong>foco principal em Suporte Técnico e Infraestrutura</strong>, áreas onde desenvolvi minha base técnica e experiência prática no atendimento a usuários e ambientes corporativos.<br><br>
 
@@ -799,13 +809,6 @@ Possuo experiência na <strong>administração de usuários e acessos em Active 
         <span>SQL (básico)</span>
       </div>
     </div>
-  </div>
-
-  <!-- REDES SOCIAIS - TAMBÉM FORA -->
-  <div class="social-links">
-    <a href="https://www.instagram.com/leandro_tavaresz?igsh=MWtpeDY1ZjhhZjVobg==" target="_blank" class="instagram"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.linkedin.com/in/leandro-tavaressz1620" target="_blank" class="linkedin"><i class="fab fa-linkedin"></i></a>
-    <a href="https://wa.me/5511976477770?text=Olá!%20Vi%20seu%20portfólio" target="_blank" class="whatsapp"><i class="fab fa-whatsapp"></i></a>
   </div>
 </div>
 
@@ -901,11 +904,269 @@ Possuo experiência na <strong>administração de usuários e acessos em Active 
   </div>
 </div>
 
-<!-- MODAIS (mantidos iguais) -->
-<div id="modal-projetos-suporte" class="modal">... (conteúdo dos modais igual ao original)</div>
-<div id="modal-projetos-soc" class="modal">...</div>
-<div id="modal-projetos-dados" class="modal">...</div>
-<div id="modal-certificacoes" class="modal">...</div>
+<!-- MODAIS -->
+<!-- Projetos Analista de Suporte -->
+<div id="modal-projetos-suporte" class="modal">
+  <div class="modal-content">
+    <span class="close-x" onclick="closeModal('modal-projetos-suporte')">&times;</span>
+    <h2>💻 Projetos Suporte & Infraestrutura</h2>
+
+    <!-- Projeto 1: Gestão de Usuários AD -->
+    <div class="project">
+      <h3>Gestão de Usuários AD</h3>
+      <div style="display: flex; gap: 8px; justify-content: center; margin: 10px 0; flex-wrap: wrap;">
+        <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">PowerShell</span>
+        <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">Active Directory</span>
+        <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">LDAP</span>
+      </div>
+      <img src="imagens/AD_PORT.png" alt="Gestão de Usuários AD" onclick="abrirImagem(this.src, 'Gestão de Usuários Active Directory')">
+      <ul style="text-align:left; margin:20px 0; padding-left:20px;">
+        <li>Criação de usuários no AD</li>
+        <li>Modificação de atributos de usuários</li>
+        <li>Exclusão de usuários</li>
+        <li>Automação de grupos e permissões</li>
+        <li>Exportação e relatórios de usuários</li>
+      </ul>
+      <div class="project-buttons">
+        <a href="https://github.com/tavaresleandro2002-dotcom/gestao-usuarios" class="button btn-github" target="_blank">Ver no GitHub</a>
+      </div>
+    </div>
+
+    <!-- Projeto 2: Monitoramento Zabbix -->
+    <div class="project">
+      <h3>Monitoramento Zabbix</h3>
+      <div style="display: flex; gap: 8px; justify-content: center; margin: 10px 0; flex-wrap: wrap;">
+        <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">Zabbix</span>
+        <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">SNMP</span>
+        <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">Linux</span>
+      </div>
+      <img src="imagens/monitoramento.png" alt="Monitoramento Zabbix" class="project-img-small" onclick="abrirImagem(this.src, 'Dashboard Zabbix - Monitoramento de Rede')">
+      <ul style="text-align:left; margin:20px 0; padding-left:20px;">
+        <li>Criação de dashboards interativos no Zabbix</li>
+        <li>Automação de notificações de incidentes</li>
+        <li>Configuração de hosts e dispositivos monitorados</li>
+        <li>Otimização do tempo de resposta a falhas</li>
+      </ul>
+      <div class="project-buttons">
+        <a href="https://github.com/tavaresleandro2002-dotcom/monitoramento-rede" class="button btn-github" target="_blank">Ver no GitHub</a>
+      </div>
+    </div>
+
+    <!-- Projeto 3: Automação TOTVS -->
+    <div class="project">
+      <h3>Automação TOTVS</h3>
+      <div style="display: flex; gap: 8px; justify-content: center; margin: 10px 0; flex-wrap: wrap;">
+        <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">TOTVS RM</span>
+        <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">Fluig</span>
+        <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">Excel</span>
+      </div>
+      <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; margin-bottom: 20px;">
+        <img src="imagens/totvs_rm.png" alt="TOTVS RM" class="project-img-small" style="max-width: 300px; width: 100%; height: auto; border-radius: 12px;" onclick="abrirImagem(this.src, 'TOTVS RM - Gestão de Inventário')">
+        <img src="imagens/totvs_fluig.png" alt="TOTVS Fluig" class="project-img-small" style="max-width: 300px; width: 100%; height: auto; border-radius: 12px;" onclick="abrirImagem(this.src, 'TOTVS Fluig - Automação de Processos')">
+      </div>
+      <ul style="text-align:left; margin:20px 0; padding-left:20px;">
+        <li>Inventário de máquinas e equipamentos</li>
+        <li>Padronização de dados de TI</li>
+        <li>Integração com Excel para análise</li>
+        <li>Registro de usuários e perfis de acesso</li>
+        <li>Automação de processos com TOTVS Fluig</li>
+      </ul>
+      <div class="project-buttons">
+        <a href="https://github.com/tavaresleandro2002-dotcom/TOTVS-Automacoes" class="button btn-github" target="_blank">Ver no GitHub</a>
+      </div>
+    </div>
+
+    <!-- Projeto 4: Plataformas No Code -->
+    <div class="project">
+      <h3>Plataformas No Code</h3>
+      <div style="display: flex; gap: 8px; justify-content: center; margin: 10px 0; flex-wrap: wrap;">
+        <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">Power Platform</span>
+        <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">Power Automate</span>
+      </div>
+      <img src="imagens/imagem_leandro.png" class="project-img-small" onclick="abrirImagem(this.src, 'Plataformas No Code - Dashboard de Chamados')">
+      <ul style="text-align:left; margin:20px 0; padding-left:20px;">
+        <li>Abertura de chamados de TI</li>
+        <li>Classificação por prioridade</li>
+        <li>Notificações automáticas por e-mail</li>
+        <li>Dashboard de acompanhamento</li>
+      </ul>
+      <div class="project-buttons">
+        <a href="https://github.com/tavaresleandro2002-dotcom/nocode-it-ticketing-power-platform" class="button btn-github" target="_blank">Ver no GitHub</a>
+      </div>
+    </div>
+
+    <!-- Projeto 5: Gestão Integrada de Ativos e Acessos -->
+    <div class="project">
+      <h3>Gestão Integrada de Ativos e Acessos</h3>
+      <div style="display: flex; gap: 8px; justify-content: center; margin: 10px 0; flex-wrap: wrap;">
+        <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">Excel</span>
+        <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">Office 365</span>
+        <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">PowerShell</span>
+      </div>
+      <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; margin-bottom: 20px;">
+        <img src="imagens/planilha_1.png" alt="Inventário de Equipamentos" class="project-img-small" style="max-width: 300px; width: 100%; border-radius: 12px;" onclick="abrirImagem(this.src, 'Inventário de Equipamentos TI')">
+        <img src="imagens/planilha_2.png" alt="Controle de Usuários" class="project-img-small" style="max-width: 300px; width: 100%; border-radius: 12px;" onclick="abrirImagem(this.src, 'Controle de Acessos e Licenças')">
+      </div>
+      <ul style="text-align:left; margin:20px 0; padding-left:20px;">
+        <li>Inventário completo de 25+ equipamentos (patrimônio, especificações)</li>
+        <li>Controle de usuários e licenças Office 365</li>
+        <li>Mapeamento de equipamentos por departamento (MKT, RH, FLUI, etc.)</li>
+        <li>Gestão de usuários ativos/inativos para otimização de licenças</li>
+        <li>Padronização de dados para integração com Active Directory</li>
+        <li>Relatórios dinâmicos com Excel avançado</li>
+      </ul>
+      <div class="project-buttons">
+        <a href="https://github.com/tavaresleandro2002-dotcom/gestao-usuarios" class="button btn-github" target="_blank">Ver no GitHub</a>
+      </div>
+    </div>
+
+    <a class="close-btn" onclick="closeModal('modal-projetos-suporte')">Fechar</a>
+  </div>
+</div>
+
+<!-- Projetos SOC / Cibersegurança -->
+<div id="modal-projetos-soc" class="modal">
+  <div class="modal-content">
+    <span class="close-x" onclick="closeModal('modal-projetos-soc')">&times;</span>
+    <h2>🔐 Projetos SOC / Cibersegurança</h2>
+    
+    <div class="project">
+      <h3>🔍 Análise de Logs com Splunk</h3>
+      <div style="display: flex; gap: 8px; justify-content: center; margin: 10px 0; flex-wrap: wrap;">
+        <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">Splunk</span>
+        <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">SIEM</span>
+      </div>
+      <ul style="text-align:left; padding-left:20px;">
+        <li>Configuração de alertas em tempo real para detecção de ameaças</li>
+        <li>Criação de dashboards para visualização de ataques</li>
+        <li>Correlação de eventos de segurança</li>
+      </ul>
+    </div>
+
+    <div class="project">
+      <h3>🛡️ Honeypot em AWS</h3>
+      <div style="display: flex; gap: 8px; justify-content: center; margin: 10px 0; flex-wrap: wrap;">
+        <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">AWS</span>
+        <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">Honeypot</span>
+      </div>
+      <ul style="text-align:left; padding-left:20px;">
+        <li>Implementação de honeypot para estudo de ataques</li>
+        <li>Análise de comportamento de atacantes</li>
+        <li>Coleta de indicadores de comprometimento</li>
+      </ul>
+    </div>
+
+    <div class="project">
+      <h3>📊 Monitoramento com Wazuh</h3>
+      <div style="display: flex; gap: 8px; justify-content: center; margin: 10px 0; flex-wrap: wrap;">
+        <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">Wazuh</span>
+        <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">TheHive</span>
+      </div>
+      <ul style="text-align:left; padding-left:20px;">
+        <li>Configuração para detecção de vulnerabilidades</li>
+        <li>Integração com TheHive para casos de segurança</li>
+        <li>Criação de regras personalizadas</li>
+      </ul>
+    </div>
+
+    <a class="close-btn" onclick="closeModal('modal-projetos-soc')">Fechar</a>
+  </div>
+</div>
+
+<!-- Projetos Dados -->
+<div id="modal-projetos-dados" class="modal">
+  <div class="modal-content">
+    <span class="close-x" onclick="closeModal('modal-projetos-dados')">&times;</span>
+    <h2>📊 Projetos Dados</h2>
+    <div class="project">
+      <p style="font-size: 1.2rem; margin: 40px 0;">🚀 Em desenvolvimento — explorando análise de dados para expandir minha atuação em TI.</p>
+      <p>Em breve: dashboards com Power BI, análises com Python e projetos de automação de relatórios.</p>
+    </div>
+    <a class="close-btn" onclick="closeModal('modal-projetos-dados')">Fechar</a>
+  </div>
+</div>
+
+<!-- Modal Certificações -->
+<div id="modal-certificacoes" class="modal">
+  <div class="modal-content">
+    <span class="close-x" onclick="closeModal('modal-certificacoes')">&times;</span>
+    <h2>Minhas Certificações</h2>
+
+    <div class="project" style="display:flex; flex-wrap:wrap; gap:20px; justify-content:center;">
+
+      <!-- NSE 1-2 -->
+      <div style="max-width:300px; text-align:left;">
+        <h3>Fortinet NSE 1-2 <span style="color: var(--primary); font-size:0.9rem;">(2026)</span></h3>
+        <img src="imagens/nse1-2.jpeg" style="width:100%; border-radius:12px; margin-bottom:10px; cursor: pointer;" onclick="abrirImagem(this.src, 'Certificado Fortinet NSE 1-2')">
+        <ul style="padding-left:20px;">
+          <li>Conhecimentos intermediários em cibersegurança</li>
+          <li>Proteção de redes corporativas</li>
+          <li>Fundamentos de FortiGate e VPN</li>
+          <li>Análise de ameaças</li>
+        </ul>
+        <div class="project-buttons">
+          <a href="https://github.com/tavaresleandro2002-dotcom/Certificados-Cursos-TI"
+             class="button btn-github"
+             target="_blank">Ver no GitHub</a>
+        </div>
+      </div>
+
+      <!-- NSE 3 -->
+      <div style="max-width:300px; text-align:left;">
+        <h3>Fortinet NSE 3 <span style="color: var(--primary); font-size:0.9rem;">(2026)</span></h3>
+        <img src="imagens/nse 3.jpeg" style="width:100%; border-radius:12px; margin-bottom:10px; cursor: pointer;" onclick="abrirImagem(this.src, 'Certificado Fortinet NSE 3')">
+        <ul style="padding-left:20px;">
+          <li>Fundamentos avançados de redes</li>
+          <li>Operação de FortiGate</li>
+          <li>Políticas de segurança</li>
+          <li>Monitoramento de tráfego</li>
+        </ul>
+        <div class="project-buttons">
+          <a href="https://github.com/tavaresleandro2002-dotcom/Certificados-Cursos-TI"
+             class="button btn-github"
+             target="_blank">Ver no GitHub</a>
+        </div>
+      </div>
+
+      <!-- ISC2 CC -->
+      <div style="max-width:300px; text-align:left;">
+        <h3>ISC2 CC <span style="color: var(--primary); font-size:0.9rem;">(2025)</span></h3>
+        <img src="imagens/isc2-candidate.png" style="width:100%; border-radius:12px; margin-bottom:10px; cursor: pointer;" onclick="abrirImagem(this.src, 'Certificado ISC2 CC')">
+        <ul style="padding-left:20px;">
+          <li>Fundamentos de segurança</li>
+          <li>Controle de acesso</li>
+          <li>Segurança de redes</li>
+          <li>Gestão de riscos</li>
+        </ul>
+        <div class="project-buttons">
+          <a href="https://github.com/tavaresleandro2002-dotcom/Certificados-Cursos-TI"
+             class="button btn-github"
+             target="_blank">Ver no GitHub</a>
+        </div>
+      </div>
+
+      <!-- Nuvem -->
+      <div style="max-width:300px; text-align:left;">
+        <h3>Infraestrutura de Nuvem <span style="color: var(--primary); font-size:0.9rem;">(2026)</span></h3>
+        <img src="imagens/Infraestrutura_Nuvem.jpeg" style="width:100%; border-radius:12px; margin-bottom:10px; cursor: pointer;" onclick="abrirImagem(this.src, 'Certificado Infraestrutura de Nuvem')">
+        <ul style="padding-left:20px;">
+          <li>Fundamentos de Cloud</li>
+          <li>IaaS, PaaS, SaaS</li>
+          <li>Nuvem pública e privada</li>
+          <li>Base para atuação em infraestrutura</li>
+        </ul>
+        <div class="project-buttons">
+          <a href="https://github.com/tavaresleandro2002-dotcom/Certificados-Cursos-TI"
+             class="button btn-github"
+             target="_blank">Ver no GitHub</a>
+        </div>
+      </div>
+
+    </div>
+
+    <a class="close-btn" onclick="closeModal('modal-certificacoes')">Fechar</a>
+  </div>
+</div>
 
 <!-- CONTATO -->
 <div class="container contato-section">
@@ -932,7 +1193,7 @@ Possuo experiência na <strong>administração de usuários e acessos em Active 
   <i class="fas fa-arrow-up"></i>
 </button>
 
-<!-- SCRIPT (mantido igual) -->
+<!-- SCRIPT -->
 <script>
 function openModal(id) { document.getElementById(id).style.display = "block"; }
 function closeModal(id) { document.getElementById(id).style.display = "none"; }
