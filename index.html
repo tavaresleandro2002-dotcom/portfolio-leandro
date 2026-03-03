@@ -20,6 +20,9 @@
   --suporte-color: #007bff;
   --soc-color: #dc3545;
   --dados-color: #ffc107;
+  --scrollbar-track: #333;
+  --scrollbar-thumb: #00d4ff;
+  --scrollbar-thumb-hover: #00aacc;
 }
 
 .light-mode {
@@ -34,6 +37,9 @@
   --suporte-color: #0284c7;
   --soc-color: #b91c1c;
   --dados-color: #b45309;
+  --scrollbar-track: #e0f2fe;
+  --scrollbar-thumb: #0284c7;
+  --scrollbar-thumb-hover: #0369a1;
 }
 
 body {
@@ -199,9 +205,37 @@ a.button:hover, button.button:hover {
   padding: 30px;
   border-radius: 16px;
   max-width: 700px;
+  max-height: 80vh;
+  overflow-y: auto;
   text-align: center;
   position: relative;
   transition: background 0.3s;
+}
+
+/* ESTILO DA BARRA DE ROLAGEM - CUSTOMIZADA */
+.modal-content::-webkit-scrollbar {
+  width: 12px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: var(--scrollbar-track);
+  border-radius: 10px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-thumb);
+  border-radius: 10px;
+  border: 3px solid var(--scrollbar-track);
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background: var(--scrollbar-thumb-hover);
+}
+
+/* Para Firefox */
+.modal-content {
+  scrollbar-width: thin;
+  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
 }
 
 .close-x {
@@ -210,10 +244,19 @@ a.button:hover, button.button:hover {
   font-size: 35px;
   font-weight: bold;
   cursor: pointer;
-  position: absolute;
-  top: 15px;
-  right: 25px;
+  position: sticky;
+  top: 0;
+  right: 0;
+  z-index: 1000;
   transition: 0.3s;
+  background: var(--modal-bg);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  margin-left: auto;
 }
 
 .close-x:hover {
@@ -231,6 +274,9 @@ a.button:hover, button.button:hover {
   margin-top: 20px;
   cursor: pointer;
   transition: 0.3s;
+  position: sticky;
+  bottom: 0;
+  z-index: 1000;
 }
 
 .close-btn:hover {
@@ -669,9 +715,10 @@ html { scroll-behavior: smooth; }
   }
   
   .modal-content {
-    margin: 10% auto;
+    margin: 5% auto;
     padding: 20px;
-    width: 90%;
+    width: 95%;
+    max-height: 85vh;
   }
   
   .project-buttons {
