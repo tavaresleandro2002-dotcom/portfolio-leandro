@@ -744,6 +744,45 @@ html { scroll-behavior: smooth; }
     grid-template-columns: 1fr;
   }
 }
+
+/* Estilos para as abas */
+.tab-container {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 30px;
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 10px;
+}
+
+.tab-btn {
+  background: transparent;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  padding: 10px 25px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.tab-btn.active {
+  background: var(--primary);
+  color: #000;
+}
+
+.tab-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px var(--primary);
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
 </style>
 </head>
 <body>
@@ -760,9 +799,23 @@ html { scroll-behavior: smooth; }
   <div class="action-icon" onclick="compartilharPortfolio()" title="Compartilhar">
     <i class="fas fa-share-alt"></i>
   </div>
-  <div class="visit-count" title="Visualizações">
-    <i class="fas fa-eye"></i> <span id="contador-visitas">0</span>
-  </div>
+  <div class="visit-count" title="Visualizações totais">
+  <i class="fas fa-eye"></i> 
+  <span id="contador-visitas">carregando...</span>
+</div>
+
+<script>
+  // Contador de visitas REAL usando CountAPI
+  fetch('https://api.countapi.xyz/hit/tavaresleandro2026/portfolio-visitas')
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('contador-visitas').textContent = data.value;
+    })
+    .catch(error => {
+      document.getElementById('contador-visitas').textContent = '0';
+      console.log('Contador temporariamente indisponível');
+    });
+</script>
 </div>
 
 <!-- TOPO -->
@@ -804,14 +857,13 @@ html { scroll-behavior: smooth; }
   </div>
   
   <div class="apresentacao-texto">
-    <p>👋 Olá! Sou <strong>Leandro Tavares</strong>, profissional de TI com foco em <strong>Suporte Técnico e Infraestrutura</strong>, atuando em <strong>Service Desk e suporte N1/N2</strong> em ambientes corporativos.<br><br>
+ <p> <p>👋 Olá! Sou <strong>Leandro Tavares</strong>, profissional de TI com experiência em suporte técnico e infraestrutura corporativa, atuando na sustentação e resolução estruturada de incidentes em ambientes de Service Desk e suporte N1/N2.</p>
 
-Tenho experiência em <strong>troubleshooting de sistemas Windows, administração de Active Directory (gestão de usuários, grupos e permissões), Microsoft 365, redes (TCP/IP, DNS, DHCP), controle de acessos e gestão de chamados com SLA, seguindo boas práticas ITIL</strong>.<br><br>
+<p>Possuo prática em administração de acessos e identidades em <strong>Microsoft 365</strong> e <strong>Active Directory</strong>, além de troubleshooting de sistemas Windows e serviços de rede como TCP/IP, DNS e DHCP.</p>
 
-Atuo também com <strong>monitoramento de infraestrutura (Zabbix), manutenção preventiva e corretiva de estações de trabalho e automação de rotinas com PowerShell</strong>, buscando redução de incidentes, diminuição de downtime e melhoria contínua dos serviços de TI.<br><br>
+<p>Atuo com <strong>monitoramento de infraestrutura</strong>, <strong>automação de rotinas operacionais</strong> com <strong>PowerShell</strong> e <strong>manutenção de estações de trabalho</strong>, contribuindo para a <strong>estabilidade</strong> e <strong>alta disponibilidade</strong> dos serviços de TI.</p>
 
-🔐 Com aprofundamento em <strong>Segurança da Informação e práticas de SOC</strong>, com foco em <strong>análise de logs, SIEM e detecção de incidentes</strong>.
-</p>
+<p>Busco evoluir continuamente em </strong>Segurança da Informação</strong>, com foco em análise de logs, monitoramento de eventos e práticas relacionadas à investigação e resposta a incidentes.</p>
 
   </div>
 </div>
@@ -877,7 +929,7 @@ Atuo também com <strong>monitoramento de infraestrutura (Zabbix), manutenção 
     <div class="problemas-grid">
       <div class="problema-item">
         <strong>⏱️ Redução do tempo de resolução</strong>
-        <p>Atuo no diagnóstico rápido de falhas em sistemas, e-mail, conectividade e softwares corporativos, minimizando impactos operacionais.</p>
+        <p>Realizo diagnóstico rápido de falhas em sistemas corporativos, e-mail, conectividade e aplicações, atuando na restauração ágil dos serviços e minimização de impactos operacionais.</p>
       </div>
       
       <div class="problema-item">
@@ -887,12 +939,12 @@ Atuo também com <strong>monitoramento de infraestrutura (Zabbix), manutenção 
       
       <div class="problema-item">
         <strong>🤖 Automação de tarefas repetitivas</strong>
-        <p>Criação de scripts (PowerShell) e fluxos automatizados para liberação de acessos, backup e rotinas de suporte, aumentando a produtividade.</p>
+        <p>Desenvolvo e apoio a automação de tarefas utilizando PowerShell, contribuindo para a otimização de processos de suporte e para o aumento da eficiência da operação de TI.</p>
       </div>
       
       <div class="problema-item">
         <strong>🛡️ Apoio na detecção de ameaças</strong>
-        <p>Monitoramento básico de logs e eventos de segurança, auxiliando na investigação inicial de incidentes e na proteção do ambiente.</p>
+        <p>Auxilio no monitoramento de eventos e análise operacional de logs, contribuindo para a identificação de anomalias e apoio às atividades de investigação de incidentes de segurança..</p>
       </div>
       
       <div class="problema-item">
@@ -912,7 +964,12 @@ Atuo também com <strong>monitoramento de infraestrutura (Zabbix), manutenção 
 <div class="container">
   <div class="porque-section">
     <h3>⭐ Por que trabalhar comigo?</h3>
-    <p>"Com experiência prática no atendimento e suporte a usuários, entendo que a tecnologia existe para resolver problemas reais das pessoas. Busco entregar não apenas suporte técnico, mas valor operacional para o negócio, combinando minha base sólida em infraestrutura com um olhar analítico voltado para segurança. Meu objetivo é contribuir para a estabilidade, eficiência e proteção dos ambientes de TI, sendo um profissional de fácil integração e com sede de evolução contínua."</p>
+    <p>"
+Com experiência prática em suporte técnico e infraestrutura, tenho como foco principal resolver problemas reais e contribuir para a continuidade dos serviços de TI. Minha atuação está orientada à entrega de valor operacional, combinando conhecimentos de sustentação de ambientes, atendimento a usuários e análise técnica de falhas.
+
+Possuo experiência com suporte em ambientes baseados em Microsoft 365 e administração de Active Directory, além de atividades relacionadas ao diagnóstico de problemas em sistemas Windows e redes corporativas.
+
+Busco contribuir para a estabilidade e eficiência da infraestrutura, mantendo uma postura colaborativa, facilidade de adaptação ao ambiente de trabalho e constante desenvolvimento técnico nas áreas de infraestrutura e segurança da informação."</p>
   </div>
 </div>
 
@@ -922,21 +979,18 @@ Atuo também com <strong>monitoramento de infraestrutura (Zabbix), manutenção 
 
   <div class="timeline-event">
     <div class="timeline-content">
-      <h4>💻 2026 – WeeHub – Analista de Suporte </h4>
-      <p>- Suporte N1/N2 a usuários em hardware, software e sistemas corporativos.<br>
-         - Gestão e automação de usuários no Active Directory, Office 365, Teams e Excel.<br>
-         - Inventário de máquinas e licenças, integração com TOTVS RM e monitoramento com Zabbix.<br>
-         - Criação de relatórios e dashboards de performance do suporte.<br>
-         - <strong>Resultado:</strong> Automatização de processos, aumentando a eficiência do suporte em 25%.</p>
+      <h4>💻 2026 – WeeHub – Analista de Suporte</h4> <p>- Suporte N1/N2 a usuários em hardware, software e sistemas corporativos.<br> - Gestão e automação de usuários no <strong>Microsoft 365</strong>, <strong>Active Directory</strong>, Teams e ferramentas corporativas.<br> - Inventário de máquinas e licenças, integração com <strong>TOTVS RM</strong> e monitoramento de infraestrutura utilizando <strong>Zabbix</strong>.<br> -<strong>Infraestrutura:</strong> Apoio à sustentação da infraestrutura de TI, contribuindo para a estabilidade dos serviços e disponibilidade dos ambientes corporativos.<br> - Criação de relatórios e dashboards para análise de performance da operação de suporte.<br> - <strong>Resultado:</strong> Automação de processos e otimização da operação, aumentando a eficiência do suporte.</p>
     </div>
   </div>
 
   <div class="timeline-event">
     <div class="timeline-content">
       <h4>💻 2023-2025 – Sindicato dos Bancários de SP – Suporte de TI / Help-Desk</h4>
-      <p>- Atendimento presencial e remoto, diagnóstico e resolução de problemas em Windows, Office 365, antivírus corporativo e softwares internos.<br>
-         - Manutenção preventiva/corretiva de computadores e gestão de chamados em Service Desk / RMM.<br>
-         - <strong>Resultado:</strong> Organização do inventário de máquinas e usuários, melhorando a gestão de chamados e a eficiência do suporte.</p>
+ <p>- Suporte N1/N2 a usuários em hardware, software e sistemas corporativos.<br> 
+<p>- Atendimento presencial e remoto, diagnóstico e resolução de problemas em Windows, <strong>Microsoft 365</strong>, antivírus corporativo e softwares internos.<br>
+   - Manutenção preventiva e corretiva de estações de trabalho e gestão de chamados em Service Desk / RMM.<br>
+   - <strong>Infraestrutura:</strong> Participação na implantação e montagem inicial de servidores corporativos, contribuindo para a estruturação do ambiente de TI.<br>
+   - <strong>Resultado:</strong> Organização do inventário de máquinas e usuários, melhorando a gestão de chamados e a eficiência do suporte.</p>
     </div>
   </div>
 
@@ -965,113 +1019,144 @@ Atuo também com <strong>monitoramento de infraestrutura (Zabbix), manutenção 
   <div class="modal-content">
     <span class="close-x" onclick="closeModal('modal-projetos-suporte')">&times;</span>
     <h2>💻 Projetos Suporte & Infraestrutura</h2>
+    
+    <!-- SISTEMA DE ABAS -->
+    <div class="tab-container">
+      <button class="tab-btn active" onclick="mostrarAba(event, 'aba-projetos-anteriores')">📋 Projetos Suporte</button>
+      <button class="tab-btn" onclick="mostrarAba(event, 'aba-novo-projeto')">🆕 Monitoramento Infra</button>
+    </div>
 
-    <!-- Projeto 1: Gestão de Usuários AD -->
-    <div class="project">
-      <h3>Gestão de Usuários AD</h3>
-      <div style="display: flex; gap: 8px; justify-content: center; margin: 10px 0; flex-wrap: wrap;">
-        <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">PowerShell</span>
-        <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">Active Directory</span>
-        <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">LDAP</span>
+    <!-- ABA 1: PROJETOS ANTERIORES -->
+    <div id="aba-projetos-anteriores" class="tab-content active">
+      <!-- Projeto 1: Gestão de Usuários AD -->
+      <div class="project">
+        <h3>Gestão de Usuários AD</h3>
+        <div style="display: flex; gap: 8px; justify-content: center; margin: 10px 0; flex-wrap: wrap;">
+          <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">PowerShell</span>
+          <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">Active Directory</span>
+          <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">LDAP</span>
+        </div>
+        <img src="imagens/AD_PORT.png" alt="Gestão de Usuários AD" onclick="abrirImagem(this.src, 'Gestão de Usuários Active Directory')">
+        <ul style="text-align:left; margin:20px 0; padding-left:20px;">
+          <li>Criação de usuários no AD</li>
+          <li>Modificação de atributos de usuários</li>
+          <li>Exclusão de usuários</li>
+          <li>Automação de grupos e permissões</li>
+          <li>Exportação e relatórios de usuários</li>
+        </ul>
+        <div class="project-buttons">
+          <a href="https://github.com/tavaresleandro2002-dotcom/gestao-usuarios" class="button btn-github" target="_blank">Ver no GitHub</a>
+        </div>
       </div>
-      <img src="imagens/AD_PORT.png" alt="Gestão de Usuários AD" onclick="abrirImagem(this.src, 'Gestão de Usuários Active Directory')">
-      <ul style="text-align:left; margin:20px 0; padding-left:20px;">
-        <li>Criação de usuários no AD</li>
-        <li>Modificação de atributos de usuários</li>
-        <li>Exclusão de usuários</li>
-        <li>Automação de grupos e permissões</li>
-        <li>Exportação e relatórios de usuários</li>
-      </ul>
-      <div class="project-buttons">
-        <a href="https://github.com/tavaresleandro2002-dotcom/gestao-usuarios" class="button btn-github" target="_blank">Ver no GitHub</a>
+
+      <!-- Projeto 2: Monitoramento Zabbix -->
+      <div class="project">
+        <h3>Monitoramento Zabbix</h3>
+        <div style="display: flex; gap: 8px; justify-content: center; margin: 10px 0; flex-wrap: wrap;">
+          <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">Zabbix</span>
+          <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">SNMP</span>
+          <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">Linux</span>
+        </div>
+        <img src="imagens/monitoramento.png" alt="Monitoramento Zabbix" class="project-img-small" onclick="abrirImagem(this.src, 'Dashboard Zabbix - Monitoramento de Rede')">
+        <ul style="text-align:left; margin:20px 0; padding-left:20px;">
+          <li>Criação de dashboards interativos no Zabbix</li>
+          <li>Automação de notificações de incidentes</li>
+          <li>Configuração de hosts e dispositivos monitorados</li>
+          <li>Otimização do tempo de resposta a falhas</li>
+        </ul>
+        <div class="project-buttons">
+          <a href="https://github.com/tavaresleandro2002-dotcom/monitoramento-rede" class="button btn-github" target="_blank">Ver no GitHub</a>
+        </div>
+      </div>
+
+      <!-- Projeto 3: Automação TOTVS -->
+      <div class="project">
+        <h3>Automação TOTVS</h3>
+        <div style="display: flex; gap: 8px; justify-content: center; margin: 10px 0; flex-wrap: wrap;">
+          <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">TOTVS RM</span>
+          <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">Fluig</span>
+          <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">Excel</span>
+        </div>
+        <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; margin-bottom: 20px;">
+          <img src="imagens/totvs_rm.png" alt="TOTVS RM" class="project-img-small" style="max-width: 300px; width: 100%; height: auto; border-radius: 12px;" onclick="abrirImagem(this.src, 'TOTVS RM - Gestão de Inventário')">
+          <img src="imagens/totvs_fluig.png" alt="TOTVS Fluig" class="project-img-small" style="max-width: 300px; width: 100%; height: auto; border-radius: 12px;" onclick="abrirImagem(this.src, 'TOTVS Fluig - Automação de Processos')">
+        </div>
+        <ul style="text-align:left; margin:20px 0; padding-left:20px;">
+          <li>Inventário de máquinas e equipamentos</li>
+          <li>Padronização de dados de TI</li>
+          <li>Integração com Excel para análise</li>
+          <li>Registro de usuários e perfis de acesso</li>
+          <li>Automação de processos com TOTVS Fluig</li>
+        </ul>
+        <div class="project-buttons">
+          <a href="https://github.com/tavaresleandro2002-dotcom/TOTVS-Automacoes" class="button btn-github" target="_blank">Ver no GitHub</a>
+        </div>
+      </div>
+
+      <!-- Projeto 4: Plataformas No Code -->
+      <div class="project">
+        <h3>Plataformas No Code</h3>
+        <div style="display: flex; gap: 8px; justify-content: center; margin: 10px 0; flex-wrap: wrap;">
+          <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">Power Platform</span>
+          <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">Power Automate</span>
+        </div>
+        <img src="imagens/imagem_leandro.png" class="project-img-small" onclick="abrirImagem(this.src, 'Plataformas No Code - Dashboard de Chamados')">
+        <ul style="text-align:left; margin:20px 0; padding-left:20px;">
+          <li>Abertura de chamados de TI</li>
+          <li>Classificação por prioridade</li>
+          <li>Notificações automáticas por e-mail</li>
+          <li>Dashboard de acompanhamento</li>
+        </ul>
+        <div class="project-buttons">
+          <a href="https://github.com/tavaresleandro2002-dotcom/nocode-it-ticketing-power-platform" class="button btn-github" target="_blank">Ver no GitHub</a>
+        </div>
+      </div>
+
+      <!-- Projeto 5: Gestão Integrada de Ativos e Acessos -->
+      <div class="project">
+        <h3>Gestão Integrada de Ativos e Acessos</h3>
+        <div style="display: flex; gap: 8px; justify-content: center; margin: 10px 0; flex-wrap: wrap;">
+          <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">Excel</span>
+          <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">Office 365</span>
+          <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">PowerShell</span>
+        </div>
+        <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; margin-bottom: 20px;">
+          <img src="imagens/planilha_1.png" alt="Inventário de Equipamentos" class="project-img-small" style="max-width: 300px; width: 100%; border-radius: 12px;" onclick="abrirImagem(this.src, 'Inventário de Equipamentos TI')">
+          <img src="imagens/planilha_2.png" alt="Controle de Usuários" class="project-img-small" style="max-width: 300px; width: 100%; border-radius: 12px;" onclick="abrirImagem(this.src, 'Controle de Acessos e Licenças')">
+        </div>
+        <ul style="text-align:left; margin:20px 0; padding-left:20px;">
+          <li>Inventário completo de 25+ equipamentos (patrimônio, especificações)</li>
+          <li>Controle de usuários e licenças Office 365</li>
+          <li>Mapeamento de equipamentos por departamento (MKT, RH, FLUI, etc.)</li>
+          <li>Gestão de usuários ativos/inativos para otimização de licenças</li>
+          <li>Padronização de dados para integração com Active Directory</li>
+          <li>Relatórios dinâmicos com Excel avançado</li>
+        </ul>
+        <div class="project-buttons">
+          <a href="https://github.com/tavaresleandro2002-dotcom/gestao-usuarios" class="button btn-github" target="_blank">Ver no GitHub</a>
+        </div>
       </div>
     </div>
 
-    <!-- Projeto 2: Monitoramento Zabbix -->
-    <div class="project">
-      <h3>Monitoramento Zabbix</h3>
-      <div style="display: flex; gap: 8px; justify-content: center; margin: 10px 0; flex-wrap: wrap;">
-        <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">Zabbix</span>
-        <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">SNMP</span>
-        <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">Linux</span>
-      </div>
-      <img src="imagens/monitoramento.png" alt="Monitoramento Zabbix" class="project-img-small" onclick="abrirImagem(this.src, 'Dashboard Zabbix - Monitoramento de Rede')">
-      <ul style="text-align:left; margin:20px 0; padding-left:20px;">
-        <li>Criação de dashboards interativos no Zabbix</li>
-        <li>Automação de notificações de incidentes</li>
-        <li>Configuração de hosts e dispositivos monitorados</li>
-        <li>Otimização do tempo de resposta a falhas</li>
-      </ul>
-      <div class="project-buttons">
-        <a href="https://github.com/tavaresleandro2002-dotcom/monitoramento-rede" class="button btn-github" target="_blank">Ver no GitHub</a>
-      </div>
-    </div>
-
-    <!-- Projeto 3: Automação TOTVS -->
-    <div class="project">
-      <h3>Automação TOTVS</h3>
-      <div style="display: flex; gap: 8px; justify-content: center; margin: 10px 0; flex-wrap: wrap;">
-        <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">TOTVS RM</span>
-        <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">Fluig</span>
-        <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">Excel</span>
-      </div>
-      <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; margin-bottom: 20px;">
-        <img src="imagens/totvs_rm.png" alt="TOTVS RM" class="project-img-small" style="max-width: 300px; width: 100%; height: auto; border-radius: 12px;" onclick="abrirImagem(this.src, 'TOTVS RM - Gestão de Inventário')">
-        <img src="imagens/totvs_fluig.png" alt="TOTVS Fluig" class="project-img-small" style="max-width: 300px; width: 100%; height: auto; border-radius: 12px;" onclick="abrirImagem(this.src, 'TOTVS Fluig - Automação de Processos')">
-      </div>
-      <ul style="text-align:left; margin:20px 0; padding-left:20px;">
-        <li>Inventário de máquinas e equipamentos</li>
-        <li>Padronização de dados de TI</li>
-        <li>Integração com Excel para análise</li>
-        <li>Registro de usuários e perfis de acesso</li>
-        <li>Automação de processos com TOTVS Fluig</li>
-      </ul>
-      <div class="project-buttons">
-        <a href="https://github.com/tavaresleandro2002-dotcom/TOTVS-Automacoes" class="button btn-github" target="_blank">Ver no GitHub</a>
-      </div>
-    </div>
-
-    <!-- Projeto 4: Plataformas No Code -->
-    <div class="project">
-      <h3>Plataformas No Code</h3>
-      <div style="display: flex; gap: 8px; justify-content: center; margin: 10px 0; flex-wrap: wrap;">
-        <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">Power Platform</span>
-        <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">Power Automate</span>
-      </div>
-      <img src="imagens/imagem_leandro.png" class="project-img-small" onclick="abrirImagem(this.src, 'Plataformas No Code - Dashboard de Chamados')">
-      <ul style="text-align:left; margin:20px 0; padding-left:20px;">
-        <li>Abertura de chamados de TI</li>
-        <li>Classificação por prioridade</li>
-        <li>Notificações automáticas por e-mail</li>
-        <li>Dashboard de acompanhamento</li>
-      </ul>
-      <div class="project-buttons">
-        <a href="https://github.com/tavaresleandro2002-dotcom/nocode-it-ticketing-power-platform" class="button btn-github" target="_blank">Ver no GitHub</a>
-      </div>
-    </div>
-
-    <!-- Projeto 5: Gestão Integrada de Ativos e Acessos -->
-    <div class="project">
-      <h3>Gestão Integrada de Ativos e Acessos</h3>
-      <div style="display: flex; gap: 8px; justify-content: center; margin: 10px 0; flex-wrap: wrap;">
-        <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">Excel</span>
-        <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">Office 365</span>
-        <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">PowerShell</span>
-      </div>
-      <div style="display: flex; gap: 15px; flex-wrap: wrap; justify-content: center; margin-bottom: 20px;">
-        <img src="imagens/planilha_1.png" alt="Inventário de Equipamentos" class="project-img-small" style="max-width: 300px; width: 100%; border-radius: 12px;" onclick="abrirImagem(this.src, 'Inventário de Equipamentos TI')">
-        <img src="imagens/planilha_2.png" alt="Controle de Usuários" class="project-img-small" style="max-width: 300px; width: 100%; border-radius: 12px;" onclick="abrirImagem(this.src, 'Controle de Acessos e Licenças')">
-      </div>
-      <ul style="text-align:left; margin:20px 0; padding-left:20px;">
-        <li>Inventário completo de 25+ equipamentos (patrimônio, especificações)</li>
-        <li>Controle de usuários e licenças Office 365</li>
-        <li>Mapeamento de equipamentos por departamento (MKT, RH, FLUI, etc.)</li>
-        <li>Gestão de usuários ativos/inativos para otimização de licenças</li>
-        <li>Padronização de dados para integração com Active Directory</li>
-        <li>Relatórios dinâmicos com Excel avançado</li>
-      </ul>
-      <div class="project-buttons">
-        <a href="https://github.com/tavaresleandro2002-dotcom/gestao-usuarios" class="button btn-github" target="_blank">Ver no GitHub</a>
+    <!-- ABA 2: NOVO PROJETO DE MONITORAMENTO -->
+    <div id="aba-novo-projeto" class="tab-content">
+      <div class="project">
+        <h3>📊 Monitoramento básico de infraestrutura</h3>
+        <div style="display: flex; gap: 8px; justify-content: center; margin: 10px 0; flex-wrap: wrap;">
+          <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">PowerShell</span>
+          <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">JSON</span>
+          <span style="background: #00d4ff20; color: var(--primary); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--primary);">Dashboard</span>
+        </div>
+        <img src="imagens/gif_monitoramento.gif" alt="Monitoramento de Infraestrutura" class="project-img-small" onclick="abrirImagem(this.src, 'Monitoramento básico de infraestrutura - GIF animado')">
+        <ul style="text-align:left; margin:20px 0; padding-left:20px;">
+          <li>Coleta de informações do sistema via PowerShell</li>
+          <li>Geração automática de arquivo JSON</li>
+          <li>Visualização de métricas em dashboard web</li>
+          <li>Automação de verificação de status da máquina</li>
+        </ul>
+        <div class="project-buttons">
+          <a href="https://github.com/tavaresleandro2002-dotcom/infrapulse-/tree/main/portfolio-monitoring" class="button btn-github" target="_blank">Ver no GitHub</a>
+        </div>
       </div>
     </div>
 
@@ -1257,6 +1342,24 @@ window.onclick = function(event) {
     if(event.target==modal) modal.style.display="none";
   });
 }
+
+// Função para alternar entre abas
+function mostrarAba(event, abaId) {
+  // Remover classe active de todos os botões e conteúdos
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.classList.remove('active');
+  });
+  document.querySelectorAll('.tab-content').forEach(content => {
+    content.classList.remove('active');
+  });
+  
+  // Adicionar classe active ao botão clicado
+  event.currentTarget.classList.add('active');
+  
+  // Mostrar o conteúdo da aba selecionada
+  document.getElementById(abaId).classList.add('active');
+}
+
 const timelineEvents = document.querySelectorAll('.timeline-event');
 const observer = new IntersectionObserver(entries => 
   entries.forEach(entry => {
